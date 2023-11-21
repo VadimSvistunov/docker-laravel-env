@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker exec -ti svv-php-1 php artisan $@
