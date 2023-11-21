@@ -10,6 +10,9 @@ services:
     volumes:
       - ./docker/nginx/conf/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ./src/laravel:/var/www/laravel
+    depends_on:
+      - mysql
+      - php
   php:
     build:
       context: .
@@ -24,3 +27,5 @@ services:
       - 3316:3306
     env_file:
       - docker/mysql/.env
+    volumes:
+      - ./src/laravel/:/var/www/laravel
